@@ -26,8 +26,8 @@ if data:
     df.columns=["Number"]
     df['Number'] = df['Number'].astype(str)
 
-    st.table(df.head(10))
-    st.write("Total Count: " + str( df[df.columns[0]].count()))
+    # st.table(df.head(10))
+    # st.write("Total Count: " + str( df[df.columns[0]].count()))
     user_input = st.text_input("Please enter the value")
 
     STREAMLIT_STATIC_PATH = pathlib.Path(st.__path__[0]) / 'static'
