@@ -1,6 +1,20 @@
 import streamlit as st
 import pandas as pd
 import pathlib
+st.set_page_config (page_title="Data")
+hide_streamlit_style = """
+<style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+</style>
+<title>
+Data
+</title>
+
+"""
+
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 st.title("Data")
 data=st.file_uploader("Upload a .csv or an excel file")
 STREAMLIT_STATIC_PATH = pathlib.Path(st.__path__[0]) / 'static'
