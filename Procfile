@@ -1,1 +1,1 @@
-web: gunicorn data:app
+web: sh setup.sh && streamlit run data.py
