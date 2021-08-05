@@ -20,16 +20,9 @@ data=st.file_uploader("Upload a .csv or an excel file")
 
 
 if data:
-    format=data.name
-    if format.split('.')[-1]== 'csv':
-        df= pd.read_csv(data)
-        
-    elif format.split('.')[-1]== 'xlsx':
-        df=pd.read_excel(data)
 
-    else:
-        st.warning("You need to upload a .csv or an excel file.")
-
+    df = pd.read_csv(data, compression='gzip', header=0, sep=',', quotechar='"')
+    
     df.columns=["Number"]
     df['Number'] = df['Number'].astype(str)
 
@@ -49,5 +42,3 @@ if data:
     if st.button("Download File"):
         st.markdown("Download from [downloads/mydata.csv](downloads/mydata.csv)")
         df.to_csv(str(DOWNLOADS_PATH / "mydata.csv"), index=False)
-else:
-    st.warning("File Not Uploaded")
