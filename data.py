@@ -16,7 +16,7 @@ Data
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 st.title("Data")
-data=st.file_uploader("Upload a .csv or an excel file")
+data=st.file_uploader("Upload a .gz  file")
 
 
 if data:
@@ -40,5 +40,5 @@ if data:
         st.table(df.head(10))
 
     if st.button("Download File"):
-        st.markdown("Download from [downloads/mydata.csv](downloads/mydata.csv)")
-        df.to_csv(str(DOWNLOADS_PATH / "mydata.csv"), index=False)
+        st.markdown("Download from [downloads/dndlist.csv.gz](downloads/dndlist.csv.gz)")
+        df.to_csv(str(DOWNLOADS_PATH / "dndlist.csv.gz"), index=False,compression="gzip")
