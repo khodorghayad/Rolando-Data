@@ -40,5 +40,5 @@ if data:
         st.table(df.head(10))
 
     if st.button("Download File"):
-        st.markdown("Download from [downloads/dndlist.csv.gz](downloads/dndlist.csv.gz)")
-        df.to_csv(str(DOWNLOADS_PATH / "dndlist.csv.gz"), index=False,compression="gzip")
+        st.markdown("Please wait for the running to stop [downloads/dndlist.csv.gz](downloads/dndlist.csv.gz)")
+        df.to_csv(str(DOWNLOADS_PATH / "dndlist.csv.gz"), index=False)
