@@ -27,7 +27,7 @@ if data:
     
     df.columns=["Number"]
     df['Number'] = df['Number'].astype(str)
-
+    df.drop_duplicates('Number',inplace=True)
     st.table(df.head(10))
     st.write("Total Count: " + str( df[df.columns[0]].count()))
     options=['0','1']
@@ -47,9 +47,9 @@ if data:
 
     if st.button("Download File"):
         if st._is_running_with_streamlit:
-            st.markdown("Click on the link to start downloading [downloads/dndlist.csv.gz](downloads/dndlist.csv.gz)")
+            st.markdown("Click on the link to start downloading [downloads/dndlistupdated.csv.gz](downloads/dndlistupdated.csv.gz)")
         else :
-            df.to_csv(str(DOWNLOADS_PATH / "dndlist.csv.gz"), index=False)
+            df.to_csv(str(DOWNLOADS_PATH / "dndlistupdated.csv.gz"), index=False)
 
         
         
